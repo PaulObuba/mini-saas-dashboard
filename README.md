@@ -3,7 +3,7 @@
 A modern SaaS dashboard built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS v4**, demonstrating clean architecture, scalable theming, protected routes, and reusable UI components.
 
 🔗 **Live Demo**  
-https://mini-saas.vercel.app/
+https://paul-mini-saas.vercel.app/
 
 ---
 
