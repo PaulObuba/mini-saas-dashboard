@@ -1,0 +1,70 @@
+"use client";
+
+import ChatHeader from "./ChatHeader";
+import MessageList from "./MessageList";
+import ChatInput from "./ChatInput";
+import { EmptyChatState } from "./EmptyChatState";
+import { Conversation } from "@/app/types/message";
+import { cn } from "@/lib/class-name";
+
+export default function ChatWindow({
+  conversation,
+  draft,
+  setDraft,
+  onSend,
+  onAttach,
+  attached,
+  sending,
+  isMobile,
+  handleBackClick,
+}: {
+  conversation: Conversation | null;
+  draft: string;
+  setDraft: (v: string) => void;
+  onSend: () => void;
+  onAttach: (f?: File) => void;
+  attached: File | null;
+  sending: boolean;
+  isMobile: boolean;
+  handleBackClick?: (va: boolean) => void;
+}) {
+  const noConversation = !conversation;
+
+  return (
+    <main
+      className={cn(
+        "flex-1 flex flex-col border-l border-mid-grey h-full",
+        isMobile ? "flex flex-col md:hidden" : "hidden md:flex"
+      )}
+      style={{
+        backgroundColor: "var(--background-50)",
+        color: "var(--text-700)",
+      }}
+    >
+      {noConversation ? (
+        <EmptyChatState />
+      ) : (
+        <>
+          <ChatHeader
+            conversation={conversation}
+            handleBackClick={handleBackClick}
+          />
+
+          <MessageList
+            messages={conversation.messages}
+            isTyping={conversation.isTyping}
+          />
+
+          <ChatInput
+            draft={draft}
+            setDraft={setDraft}
+            onSend={onSend}
+            onAttach={onAttach}
+            attached={attached}
+            sending={sending}
+          />
+        </>
+      )}
+    </main>
+  );
+}

@@ -1,26 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------------- Base Colors ---------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background-900: #151515;
+  --background-100: #222222;
+  --background-50: #393939;
+  --text-900: #ffffff;
+  --text-700: #e9e9e9;
 }
 
+/* ---------------- Light Mode Overrides ---------------- */
+body.light {
+  --background-900: #f2f2fc;
+  --background-100: #fdf9ff;
+  --background-50: #ffffff;
+  --text-900: #303e4d;
+  --text-700: #504e70;
+}
+
+/* ---------------- Tailwind Inline Theme ---------------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Plus Jakarta Sans", Arial, Helvetica, sans-serif;
+  --font-mono: "Fira Code", monospace;
+
+  --color-background-900: var(--background-900);
+  --color-background-100: var(--background-100);
+  --color-background-50: var(--background-50);
+
+  --color-text-900: var(--text-900);
+  --color-text-700: var(--text-700);
+
+  /* ---------------- Semantic / Brand Colors ---------------- */
+  --color-primary: #3b82f6; /* blue-600 */
+  --color-primary-hover: #1d4ed8; /* blue-700 */
+  --color-primary-soft: #dbeafe; /* blue-100 */
+
+  --color-danger: #dc2626;
+  --color-danger-hover: #b91c1c;
+  --color-success: #16a34a;
+  --color-warning: #f59e0b;
 }
 
+/* ---------------- System Dark Mode ---------------- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background-900: #0a0a0a;
+    --background-100: #111111;
+    --background-50: #1f1f1f;
+    --text-900: #ededed;
+    --text-700: #b0b0b0;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
+/* ---------------- Body Styling ---------------- */
+/* body {
+  background-color: var(--background-900);
+  color: var(--text-900);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+} */
+
+body {
+  background: var(--background-900);
+  color: var(--text-900);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s, color 0.3s;
 }
