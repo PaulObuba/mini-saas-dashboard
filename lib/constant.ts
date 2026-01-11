@@ -1,7 +1,6 @@
-import Avatar from "../app/assets/images/user-placeholder.jpg";
 
 export const defaultImages = {
-  avatar: Avatar,
+  avatar: "/images/user-placeholder.jpg",
 };
 
 export const formatDate = (date: string) => {

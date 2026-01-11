@@ -17,7 +17,7 @@ export const UserCard = ({
   onClick: () => void;
   handleAction: (action: string) => void;
 }) => {
-  const profileImageSrc = user?.profile_picture || defaultImages.avatar.src;
+  const profileImageSrc = user?.profile_picture || defaultImages.avatar;
 
   return (
     <motion.div

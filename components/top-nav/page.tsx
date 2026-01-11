@@ -16,8 +16,6 @@ const TopNav = () => {
   const { authUser } = useAuth();
   const { theme, setTheme } = useTheme();
 
-  console.log("authUser", useAuth());
-
   const [isOpen, setIsOpen] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
